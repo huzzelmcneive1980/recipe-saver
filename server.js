@@ -6,6 +6,11 @@
 
 require('dotenv').config();
 
+// Some hosts (including Render) have unreliable outbound IPv6, which makes
+// the TLS handshake to MongoDB Atlas fail with a generic "SSL alert 80"
+// error. Preferring IPv4 for DNS lookups avoids that.
+require('dns').setDefaultResultOrder('ipv4first');
+
 const express = require('express');
 const path = require('path');
 const { MongoClient, ObjectId } = require('mongodb');
