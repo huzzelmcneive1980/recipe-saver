@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Recipes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>🍲 My Recipes</h1>
+    <button id="toggleFormBtn" class="btn-primary">+ Add Recipe</button>
+  </header>
+
+  <section id="addForm" class="add-form hidden">
+    <h2>Add a Recipe</h2>
+    <form id="recipeForm">
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="name" placeholder="e.g. Grandma's Lasagna" required />
+
+      <label for="url">Link / URL</label>
+      <input type="url" id="url" name="url" placeholder="https://example.com/recipe" />
+
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes" rows="3" placeholder="Substitutions, tweaks, how it turned out..."></textarea>
+
+      <label for="tags">Tags / Keywords</label>
+      <input type="text" id="tags" name="tags" placeholder="dinner, pasta, italian (comma separated)" />
+
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Save Recipe</button>
+        <button type="button" id="cancelFormBtn" class="btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </section>
+
+  <div class="search-bar">
+    <input type="search" id="searchInput" placeholder="🔍 Search by name or tag..." />
+  </div>
+
+  <main id="recipeList" class="recipe-list">
+    <!-- Recipe cards get inserted here by app.js -->
+  </main>
+
+  <p id="emptyMessage" class="empty-message hidden">No recipes yet. Add your first one above!</p>
+
+  <script src="app.js"></script>
+</body>
+</html>
